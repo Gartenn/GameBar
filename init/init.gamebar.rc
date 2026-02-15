@@ -1,31 +1,35 @@
-# GameBar init script
-# NOTE: Customize these paths for your device's hardware
+# GameBar init script - Peridot SM8635
 
 on boot
-    # FPS measurement path (adjust paths)
+
+    # FPS measurement path
     chown system graphics /sys/class/drm/sde-crtc-0/measured_fps
     chmod 0660 /sys/class/drm/sde-crtc-0/measured_fps
 
-    # Battery temperature path (adjust paths)
+    # Battery temperature
     chown system system /sys/class/power_supply/battery/temp
     chmod 0660 /sys/class/power_supply/battery/temp
-    
-    # CPU temperature path (adjust thermal zone number)
+
+    # CPU temperature (cpu_therm → thermal_zone48)
     chown system system /sys/class/thermal/thermal_zone48/temp
     chmod 0660 /sys/class/thermal/thermal_zone48/temp
-    
-    # GPU paths (adjust paths)
+
+    # GPU usage
     chown system system /sys/class/kgsl/kgsl-3d0/gpu_busy_percentage
     chmod 0660 /sys/class/kgsl/kgsl-3d0/gpu_busy_percentage
+
+    # GPU clock
     chown system system /sys/class/kgsl/kgsl-3d0/gpuclk
     chmod 0660 /sys/class/kgsl/kgsl-3d0/gpuclk
-    chown system system /sys/class/kgsl/kgsl-3d0/temp
-    chmod 0660 /sys/class/kgsl/kgsl-3d0/temp
-    
-    # RAM frequency path (adjust paths)
+
+    # GPU temperature (gpuss-0 → thermal_zone30)
+    chown system system /sys/class/thermal/thermal_zone30/temp
+    chmod 0660 /sys/class/thermal/thermal_zone30/temp
+
+    # RAM frequency
     chown system system /sys/devices/system/cpu/bus_dcvs/DDR/cur_freq
     chmod 0660 /sys/devices/system/cpu/bus_dcvs/DDR/cur_freq
-    
-    # RAM temperature path (adjust thermal zone number)
-    chown system system /sys/class/thermal/thermal_zone27/temp
-    chmod 0660 /sys/class/thermal/thermal_zone27/temp
+
+    # RAM temperature (ddr → thermal_zone36)
+    chown system system /sys/class/thermal/thermal_zone36/temp
+    chmod 0660 /sys/class/thermal/thermal_zone36/temp
