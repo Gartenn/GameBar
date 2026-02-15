@@ -182,25 +182,12 @@ public class PartsCustomSeekBarPreference extends Preference implements Slider.O
             Log.w(TAG, "Step size is zero or invalid: " + mInterval);
         }
 
-        // Set up slider color
-        mSlider.setTrackActiveTintList(getContext().getColorStateList(
-                com.android.settingslib.widget.preference.slider.R.color
-                .settingslib_expressive_color_slider_track_active));
-        mSlider.setTrackInactiveTintList(getContext().getColorStateList(
-                com.android.settingslib.widget.preference.slider.R.color
-                .settingslib_expressive_color_slider_track_inactive));
-        mSlider.setThumbTintList(getContext().getColorStateList(
-                com.android.settingslib.widget.preference.slider.R.color
-                .settingslib_expressive_color_slider_thumb));
-        mSlider.setHaloTintList(getContext().getColorStateList(
-                com.android.settingslib.widget.preference.slider.R.color
-                .settingslib_expressive_color_slider_halo));
-        mSlider.setTickActiveTintList(getContext().getColorStateList(
-                com.android.settingslib.widget.preference.slider.R.color
-                .settingslib_expressive_color_slider_track_active));
-        mSlider.setTickInactiveTintList(getContext().getColorStateList(
-                com.android.settingslib.widget.preference.slider.R.color
-                .settingslib_expressive_color_slider_track_inactive));
+        // Use default theme colors (LineageOS 23 compatible)
+        int accent = getContext().getColor(android.R.color.system_accent1_500);
+
+        mSlider.setTrackActiveTintList(android.content.res.ColorStateList.valueOf(accent));
+        mSlider.setThumbTintList(android.content.res.ColorStateList.valueOf(accent));
+        mSlider.setHaloTintList(android.content.res.ColorStateList.valueOf(accent));
 
         // Set up slider size
         if (SettingsThemeHelper.isExpressiveTheme(getContext())) {
