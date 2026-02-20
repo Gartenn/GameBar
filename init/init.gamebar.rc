@@ -22,8 +22,8 @@ on boot
     chown system system /sys/class/kgsl/kgsl-3d0/gpuclk
     chmod 0660 /sys/class/kgsl/kgsl-3d0/gpuclk
 
-    # GPU temperature (gpuss-0 → thermal_zone30)
-    chown system system /sys/class/thermal/thermal_zone30/temp
+    # GPU temperature (gpuss-0 → thermal_zone31)
+    chown system system /sys/class/thermal/thermal_zone31/temp
     chmod 0660 /sys/class/thermal/thermal_zone30/temp
 
     # RAM frequency
